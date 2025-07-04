@@ -20,3 +20,7 @@ class ExpenseIncomeSerializer(ExpenseIncomeBaseSerializer):
         read_only_fields = ["id", "created_at", "updated_at", "total"]
 
 
+class ExpenseIncomeListSerializer(ExpenseIncomeBaseSerializer):
+    class Meta:
+        model = ExpenseIncome
+        fields = ["id", "title", "amount", "transaction_type", "total", "created_at"]
