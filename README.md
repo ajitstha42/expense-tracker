@@ -52,3 +52,9 @@ python manage.py runserver
 
 ---
 
+### 7. Access the API documentation
+
+```python
+http://127.0.0.1:8000/api/docs/
+```
+---
