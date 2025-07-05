@@ -7,7 +7,12 @@ from .permissions import IsOwnerOrSuperuser
 
 class ExpenseIncomeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsOwnerOrSuperuser]
-    queryset = ExpenseIncome
+    
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_superuser:
+            return ExpenseIncome.objects.all()
+        return ExpenseIncome.objects.filter(user=user)
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
