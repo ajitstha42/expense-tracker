@@ -3,8 +3,10 @@ from .models import ExpenseIncome
 from rest_framework.permissions import IsAuthenticated
 from .serializers import ExpenseIncomeSerializer, ExpenseIncomeListSerializer
 from .permissions import IsOwnerOrSuperuser
+from drf_spectacular.utils import extend_schema
 
 
+@extend_schema(tags=["Expenses"])
 class ExpenseIncomeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsOwnerOrSuperuser]
     
