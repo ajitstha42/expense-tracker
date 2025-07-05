@@ -50,8 +50,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 
----
-
 ### 7. Access the API documentation
 
 ```python
